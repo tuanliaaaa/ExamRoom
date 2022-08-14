@@ -78,7 +78,10 @@ namespace RoomExam.Controllers
         [Route("~/api/LoginByMail/{UserId?}")]
         public async Task<IActionResult> LoginByMail(int UserID)
         {
+            int i = 0;
             User  user = await _user.GetUser(UserID);
+            user.Status = true;
+            i= await _user.UpdateUser(user);
             if(user != null)
             {
                 string Token = Generate(user);
