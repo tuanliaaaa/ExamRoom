@@ -1,0 +1,15 @@
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\bin\Debug\net6.0\BusinessAccess.exe
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\bin\Debug\net6.0\BusinessAccess.deps.json
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\bin\Debug\net6.0\BusinessAccess.runtimeconfig.json
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\bin\Debug\net6.0\BusinessAccess.dll
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\bin\Debug\net6.0\BusinessAccess.pdb
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.csproj.AssemblyReference.cache
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.AssemblyInfoInputs.cache
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.AssemblyInfo.cs
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.csproj.CoreCompileInputs.cache
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.dll
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\refint\BusinessAccess.dll
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.pdb
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\BusinessAccess.genruntimeconfig.cache
+C:\Users\nhatt\Desktop\Web api\RoomExam\BusinessAccess\obj\Debug\net6.0\ref\BusinessAccess.dll
