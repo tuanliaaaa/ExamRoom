@@ -12,8 +12,10 @@ namespace DataAccess.Entities
     {
         [Key]
         public int UserID { get; set; }
-        public string? Email { get; set; }
-        public string? Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public int? UserType { get; set; }
         public string? Portestement { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? Specialization { get; set; }
