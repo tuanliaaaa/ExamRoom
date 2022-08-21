@@ -4,22 +4,23 @@
 
 namespace DataAccess.Migrations
 {
-    public partial class AddPasswordForUser : Migration
+    public partial class HistoryRegisterTermCode : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Password",
-                table: "Users",
+                name: "HistoryRegisterTermCode",
+                table: "HistoryRegisterTerms",
                 type: "nvarchar(max)",
-                nullable: true);
+                nullable: false,
+                defaultValue: "");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Password",
-                table: "Users");
+                name: "HistoryRegisterTermCode",
+                table: "HistoryRegisterTerms");
         }
     }
 }

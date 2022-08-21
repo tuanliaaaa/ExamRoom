@@ -17,7 +17,8 @@ namespace DataAccess.Services
        {
             return services
            .AddScoped<IEmail, EmailService>()
-           .AddScoped<IUser<Entities.User>, UserService<Entities.User>>();
+           .AddScoped<IUser<Entities.User>, UserService<Entities.User>>()
+           .AddScoped<IHistoryRegisterTerm<Entities.HistoryRegisterTerm>, HistoryRegisterTermServies<Entities.HistoryRegisterTerm>>(); ;
         }
     }
 }

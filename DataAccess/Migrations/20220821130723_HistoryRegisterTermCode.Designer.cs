@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220814125416_sencond-Table")]
-    partial class sencondTable
+    [Migration("20220821130723_HistoryRegisterTermCode")]
+    partial class HistoryRegisterTermCode
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,67 +24,152 @@ namespace DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("DataAccess.Entities.RoomExam", b =>
+            modelBuilder.Entity("DataAccess.Entities.Exam", b =>
                 {
-                    b.Property<int>("RoomExamID")
+                    b.Property<int>("ExamID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomExamID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExamID"), 1L, 1);
 
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
+                    b.Property<DateTime>("EndExamDay")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("RoomExamName")
+                    b.Property<string>("ExamName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Status")
+                    b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
-                    b.Property<int>("SubjectcID")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("StartExamDay")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("RoomExamID");
+                    b.HasKey("ExamID");
 
-                    b.ToTable("RoomExams");
+                    b.ToTable("Exams");
                 });
 
-            modelBuilder.Entity("DataAccess.Entities.StoryRegister", b =>
+            modelBuilder.Entity("DataAccess.Entities.ExamRoom", b =>
                 {
-                    b.Property<int>("StoryRegisterID")
+                    b.Property<int>("ExamRoomID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StoryRegisterID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExamRoomID"), 1L, 1);
 
                     b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
+                    b.Property<DateTime>("ExamEndTime")
+                        .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsPayment")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PaymentMethod")
+                    b.Property<string>("ExamRoomName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoomExamID")
+                    b.Property<DateTime>("ExamStartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ExamSubjectID")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("StoryRegisteryDay")
+                    b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime2");
+
+                    b.HasKey("ExamRoomID");
+
+                    b.ToTable("ExamRooms");
+                });
+
+            modelBuilder.Entity("DataAccess.Entities.ExamSubject", b =>
+                {
+                    b.Property<int>("ExamSubjectID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExamSubjectID"), 1L, 1);
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DayExam")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ExamID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExamSubjectName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ExamSubjectID");
+
+                    b.ToTable("ExamSubjects");
+                });
+
+            modelBuilder.Entity("DataAccess.Entities.HistoryRegisterTerm", b =>
+                {
+                    b.Property<int>("HistoryRegisterTermID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HistoryRegisterTermID"), 1L, 1);
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DayPay")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExamID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HistoryRegisterTermCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MoneyNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Payments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegisterDay")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime2");
@@ -92,76 +177,9 @@ namespace DataAccess.Migrations
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.HasKey("StoryRegisterID");
+                    b.HasKey("HistoryRegisterTermID");
 
-                    b.ToTable("StoryRegisters");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Subjectc", b =>
-                {
-                    b.Property<int>("SubjectcID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubjectcID"), 1L, 1);
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("SubjectcDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SubjectcName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TermID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("SubjectcID");
-
-                    b.ToTable("Subjectcs");
-                });
-
-            modelBuilder.Entity("DataAccess.Entities.Term", b =>
-                {
-                    b.Property<int>("TermID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TermID"), 1L, 1);
-
-                    b.Property<DateTime?>("CreatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("TermDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TermName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("TermID");
-
-                    b.ToTable("Terms");
+                    b.ToTable("HistoryRegisterTerms");
                 });
 
             modelBuilder.Entity("DataAccess.Entities.User", b =>
@@ -179,6 +197,7 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
@@ -187,19 +206,17 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("PhoneNumber")
                         .HasColumnType("int");
 
-                    b.Property<string>("Portestement")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("School")
+                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sex")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Specialization")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
@@ -208,7 +225,11 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("UserType")
+                        .HasColumnType("int");
+
                     b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");

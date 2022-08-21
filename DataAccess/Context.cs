@@ -21,10 +21,10 @@ namespace DataAccess
 
 
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<RoomExam> RoomExams { get; set; }
-        public virtual DbSet<StoryRegister> StoryRegisters { get; set; }
-        public virtual DbSet<Subjectc> Subjectcs { get; set; }
-        public virtual DbSet<Term> Terms { get; set; }
+        public virtual DbSet<ExamRoom> ExamRooms { get; set; }
+        public virtual DbSet<HistoryRegisterTerm> HistoryRegisterTerms { get; set; }
+        public virtual DbSet<ExamSubject> ExamSubjects { get; set; }
+        public virtual DbSet<Exam> Exams { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Blog>(entity =>

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Entities
 {
-    public class Subjectc : BaseEntity
+    public class Exam : BaseEntity
     {
         [Key]
-        public int SubjectcID { get; set; }
-        public int TermID { get; set; }
-        public string SubjectcName { get; set; }
-        public DateTime SubjectcDate { get; set; }
+        public int ExamID { get; set; }
+        public string ExamName { get; set; }
+        public DateTime StartExamDay { get; set; }
+        public DateTime EndExamDay { get; set; }
     }
 }
